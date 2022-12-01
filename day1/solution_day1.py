@@ -8,20 +8,15 @@ def parse(puzzle_input):
     current_elf_calories = 0
     for number in puzzle_input:
         if number == '\n':
-            # print(current_elf_calories)
             calories.append(current_elf_calories)
             current_elf_calories = 0
         else:
             current_elf_calories = current_elf_calories + int(number)
     else:
-        #workaround to add the last after EOF, to be improved
-        # print(current_elf_calories)
+        #workaround to add the last after EOF, to be improved... maybe...
         calories.append(current_elf_calories)
     return calories
     
-
-    
-
 def part1(data):
     return sorted(data, reverse=True)[0]
 

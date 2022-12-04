@@ -34,7 +34,6 @@ def parse(puzzle_input):
 
 def part1(data):
     """Solve part 1."""
-    # return data
     sum = 0
     for line in data:
         found = False
@@ -67,12 +66,3 @@ if __name__ == "__main__":
         puzzle_input = open(path, 'r')
         solutions = solve(puzzle_input)
         print("\n".join(str(solution) for solution in solutions))
-    # input = "azAZ"
-    # for ch in input:
-    #     charcode = ord(ch)
-    #     prio = 0
-    #     if charcode > 90:
-    #         prio = charcode - 96
-    #     else:
-    #         prio = charcode - 38
-    #     print(ch, " -> ", ord(ch), " prio -> ", prio)

@@ -49,8 +49,25 @@ def part1(data):
     return sum
 
 def part2(data):
-    """Solve part 2."""
-    return "TBD"
+    #slice list to separate elfs in groups.
+    groups = []
+    badge_sum = 0
+    for i in range(0, len(data), 3):
+        groups.append(data[i:i+3])
+    
+    #check the badge item for each group and add its priority to the sum of badges
+    for group in groups:
+        found = False
+        elf1, elf2, elf3 = group[0], group[1], group[2]
+        for item in elf1:
+            if (item in elf2 and item in elf3):
+                found = True
+                badge_sum += item
+            if found:
+                break
+    
+    return badge_sum
+
 
 def solve(puzzle_input):
     """Solve the puzzle for the given input."""

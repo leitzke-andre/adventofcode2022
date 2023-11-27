@@ -8,25 +8,21 @@ from collections import deque
 def parse(puzzle_input):
     return puzzle_input.read()
 
-def part1(data):
-    initial_pos = 4
-    d = deque(data[:4]) #preinitialize deque with first 4 characters
+def get_start_of_packet_marker(data, marker_size):
+    initial_pos = marker_size
+    d = deque(data[:marker_size]) #preinitialize deque with first 4 characters
     for i in range(initial_pos, len(data)):
-        if len(set(d)) == 4:
+        if len(set(d)) == marker_size:
             return i
         d.popleft()
         d.append(data[i])
     return "Error"
 
+def part1(data):
+    return get_start_of_packet_marker(data, 4)
+
 def part2(data):
-    initial_pos = 14
-    d = deque(data[:14]) #preinitialize deque with first 4 characters
-    for i in range(initial_pos, len(data)):
-        if len(set(d)) == 14:
-            return i
-        d.popleft()
-        d.append(data[i])
-    return "Error"
+    return get_start_of_packet_marker(data, 14)
 
 def solve(puzzle_input):
     """Solve the puzzle for the given input."""
